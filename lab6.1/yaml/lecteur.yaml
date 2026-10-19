@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: lecteur
+spec:
+  containers:
+    - name: lecteur
+      image: nginx:1.26-alpine
+      volumeMounts:
+        - name: backup
+          mountPath: /backup
+  volumes:
+    - name: backup
+      persistentVolumeClaim:
+        claimName: backup-pvc

@@ -1,0 +1,13 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: calcul
+spec:
+  backoffLimit: 3
+  template:
+    spec:
+      restartPolicy: Never
+      containers:
+        - name: calcul
+          image: busybox:1.36
+          command: ["sh", "-c", "echo debut; sleep 5; echo fin"]

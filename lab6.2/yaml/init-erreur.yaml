@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: init-erreur
+spec:
+  initContainers:
+    - name: init-casse
+      image: busybox:1.36
+      command: ["sh", "-c", "echo preparation en cours; exit 1"]
+  containers:
+    - name: app
+      image: nginx:1.26-alpine

@@ -1,0 +1,13 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: echec
+spec:
+  backoffLimit: 2
+  template:
+    spec:
+      restartPolicy: Never
+      containers:
+        - name: app
+          image: busybox:1.36
+          command: ["sh", "-c", "echo tentative; exit 1"]

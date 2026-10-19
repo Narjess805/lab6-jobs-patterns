@@ -1,0 +1,15 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: parallele
+spec:
+  completions: 6
+  parallelism: 2
+  ttlSecondsAfterFinished: 120
+  template:
+    spec:
+      restartPolicy: Never
+      containers:
+        - name: tache
+          image: busybox:1.36
+          command: ["sh", "-c", "echo traitement; sleep 10"]

@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: reseau-partage
+spec:
+  containers:
+    - name: web
+      image: nginx:1.26-alpine
+    - name: testeur
+      image: busybox:1.36
+      command: ["sh", "-c", "while true; do wget -qO- http://localhost | grep -o '<title>.*</title>'; sleep 10; done"]

@@ -1,0 +1,4 @@
+# Ne jamais versionner de vrais secrets
+secret.yaml
+**/secret.yaml
+*.secret.yaml
